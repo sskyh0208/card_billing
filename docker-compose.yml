@@ -1,14 +1,14 @@
 version: '3'
 services:
-  deploy:
-    container_name: deploy
+  terraform:
+    container_name: terraform
     build:
-      context: ./dockerfile
-      dockerfile: terraform
+      context: ./.dockerfile/terraform
+      dockerfile: Dockerfile
     volumes:
       - type: bind
         source: ./src
         target: /workspace
     env_file:
-      - .env
+      - ./.env
     tty: true
